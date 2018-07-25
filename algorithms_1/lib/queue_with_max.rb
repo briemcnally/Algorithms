@@ -20,14 +20,21 @@ class QueueWithMax
   end
 
   def dequeue
-    @store.pop
+    @store.shift
+  end
+
+  def each
+    @count.times { |i| yield self[i] }
+    self
   end
 
   def max
     arr = []
+    # @store
     @store.count.times do |i|
       arr.push(@store[i])
     end
+    # p arr
     arr.max
   end
 
