@@ -6,10 +6,7 @@ end
 class Array
   def hash
     result = 0
-    self.each_with_index do |el, idx|
-      result += (el.hash * (idx + 1))
-    end
-
+    self.each_with_index { |el, idx| result += (el.hash * (idx + 1)) }
     result
   end
 end
