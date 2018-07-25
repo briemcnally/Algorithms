@@ -23,10 +23,10 @@ class QueueWithMax
     @store.shift
   end
 
-  def each
-    @count.times { |i| yield self[i] }
-    self
-  end
+  # def each
+  #   @count.times { |i| yield self[i] }
+  #   self
+  # end
 
   def max
     arr = []
