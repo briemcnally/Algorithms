@@ -1,4 +1,5 @@
 class MaxIntSet
+
   def initialize(max)
     @max = max
     @store = Array.new(max) {false}
@@ -31,6 +32,8 @@ end
 
 
 class IntSet
+
+  attr_reader :num_buckets
   def initialize(num_buckets = 20)
     @store = Array.new(num_buckets) { Array.new }
     @num_buckets = num_buckets
@@ -57,10 +60,6 @@ class IntSet
   def [](num)
     @store[num % num_buckets]
     # optional but useful; return the bucket corresponding to `num`
-  end
-
-  def num_buckets
-    @store.length
   end
 end
 
