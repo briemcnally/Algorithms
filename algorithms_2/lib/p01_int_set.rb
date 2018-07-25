@@ -72,11 +72,8 @@ class ResizingIntSet
   end
 
   def insert(num)
-    if !self.include?(num)
-      self[num] << num
-      @count += 1
-    end
-
+    self[num] << num if !self.include?(num)
+    @count += 1
     resize! if @count == num_buckets
   end
 
@@ -86,12 +83,8 @@ class ResizingIntSet
 
   def include?(num)
     return false if self[num].nil?
-
-    self[num].each do |b|
-      return true if b == num
-    end
-
-    false
+    self[num].each {|b| return true if b == num }
+    return false
   end
 
   private
